@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      * {
+        border: 2px solid red;
+      }
+
+      .container {
+        padding: 50px;
+        background-color: blue;
+        /*   display: flex; /* changes the inner display (how the content INSIDE is displayed) */
+      }
+
+      /* Standard Box Model */
+      .box {
+        font-size: 30px;
+        padding: 50px;
+        background-color: cyan;
+        margin: -10px auto; /* top, bottom: -10px; left, right: auto-center */
+        /* width, height can be set for an NON-EMPTY CONTENT box. If not set, 
+        default to auto (the exact size of the conetnet inside) .*/
+
+        /* enabling z-index */
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Alternative Box Model (all elements also have the .box class) */
+      .alt-box {
+        box-sizing: border-box; /* enable alt. box model */
+        /* Specify the box size by width/height, then the padding & border etc.
+        will be deducted to find content size. Margin not included in the box size */
+        height: 200px;
+        width: 700px;
+
+        z-index: 2; /* to visualize negative margin value */
+      }
+
+      /* Inline-block */
+      .inline-block {
+        display: inline-block; /* inline but is aware of width/height, margin/padding/border
+        and pushes all other elements away.*/
+        height: 100px;
+      }
+
+      /* Margin collapsing*/
+      /* !!! no margin collapsing inside flexbox!! */
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni quidem
+        id eum voluptas obcaecati esse deserunt maxime
+        <span class="inline">(I am inline)</span> asperiores
+      </div>
+      <div class="box alt-box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni quidem
+        id eum voluptas obcaecati esse deserunt maxime asperiores
+      </div>
+      <div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni quidem
+        id eum voluptas obcaecati esse deserunt maxime
+        <span class="inline-block">(I am inline-block)</span> asperiores
+      </div>
+    </div>
+  </body>
+</html>
