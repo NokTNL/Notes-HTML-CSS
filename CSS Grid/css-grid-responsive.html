@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body > * {
+        border: 3px solid orange;
+        border-radius: 3px;
+        color: red;
+      }
+
+      body {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Lorem ipsum 1</h1>
+    </header>
+    <p>
+      <strong>Lorem ipsum 2: </strong>dolor sit amet consectetur adipisicing
+      elit. Velit corrupti quibusdam ipsum sit doloribus, quae molestias
+      repellat quaerat, aliquam facere animi magni magnam! Odit quasi rerum,
+      enim nulla ratione neque.
+    </p>
+    <p>
+      <strong>Lorem ipsum 3:</strong> dolor sit amet consectetur adipisicing
+      elit. Velit corrupti quibusdam ipsum sit doloribus, quae molestias
+      repellat quaerat, aliquam facere animi magni magnam! Odit quasi rerum,
+      enim nulla ratione neque.
+    </p>
+    <footer><h4>Lorem ipsum 4</h4></footer>
+  </body>
+</html>

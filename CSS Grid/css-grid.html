@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body > * {
+        border: 3px solid orange;
+        border-radius: 3px;
+        color: red;
+      }
+
+      /* CSS Grid */
+      body {
+        display: grid; /* or inline-grid */
+        /* Declaring this gives you a one-column grid by default so it won't look much different than the normal block flow*/
+        /* Every column/row in a grid is called a TRACK */
+
+        /* Grid gap */
+        /* Adds gaps between grids */
+        /* You can also set different gaps in row-gap and column-gap */
+        gap: 0.5rem;
+
+        /* Define explicit grid tracks */
+        /* Use "fr" to define the width/heights of the grid, == "1 fraction" of AVAILABLE SPACE */
+        /* You can use absolute units (like px, rem) here too but will not be responsive */
+        /* !! Need to set "height" for the grid container, otherwise will fall back to content height */
+        min-height: 100vh;
+        grid-template-rows: 1fr 2fr 1fr 2fr;
+        /* use the repeat() CSS function for repeating track heights */
+        grid-template-rows: repeat(2, 1fr 2fr);
+        /* !! Elements that falls out of the specified template tracks will fall back to use content height */
+
+        /* You can let a grid grow until reaching the height by setting:
+        1. non-growing grid tracks to fixed units or auto(== content height)
+        2. growing grid tracks to "fr" units --> takes up all available space
+        */
+        grid-template-rows: 300px 1fr 300px 1fr;
+
+        /* Setting both grids & column */
+        /* Default flow (auto-placement) of elements is by ROW */
+        grid-template-columns: 1fr 1fr;
+
+        /* Shorthand for grid-template-rows/columns: rows THEN columns */
+        grid-template: 300px 1fr 300px 1fr / 1fr 1fr;
+
+        /* Implicit grid */
+        /* As the defulat flow is by rows, we can set grid-auto-rows so that
+        elements that fall outside our explicit grid will be handled by extra "auto-rows": */
+        grid-template-rows: 1fr; /* Only two rows are defined */
+        grid-auto-rows: 2fr; /* This will handle the remaining two elements */
+        /* If we set grid-auto-flow: column then the extra elements will handled by grid-auto-columns */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem ipsum 1</h1>
+    <p>
+      <strong>Lorem ipsum 2: </strong>dolor sit amet consectetur adipisicing
+      elit. Velit corrupti quibusdam ipsum sit doloribus, quae molestias
+      repellat quaerat, aliquam facere animi magni magnam! Odit quasi rerum,
+      enim nulla ratione neque.
+    </p>
+    <p>
+      <strong>Lorem ipsum 3:</strong> dolor sit amet consectetur adipisicing
+      elit. Velit corrupti quibusdam ipsum sit doloribus, quae molestias
+      repellat quaerat, aliquam facere animi magni magnam! Odit quasi rerum,
+      enim nulla ratione neque.
+    </p>
+    <footer><h4>Lorem ipsum 4</h4></footer>
+  </body>
+</html>
