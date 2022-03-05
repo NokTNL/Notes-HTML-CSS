@@ -13,6 +13,7 @@
       }
 
       /* Standard Box Model */
+      /* Standard box model uses the default box-sizing: content-box */
       .box {
         font-size: 30px;
         padding: 50px;
@@ -35,6 +36,19 @@
         width: 700px;
 
         z-index: 2; /* to visualize negative margin value */
+      }
+      /* To enable global border-box: */
+      * {
+        box-sizing: border-box;
+      }
+      /* If you want some element to have content-box and want all of its CHILDREN to use border-box too: */
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
       }
 
       /* Inline-block */
