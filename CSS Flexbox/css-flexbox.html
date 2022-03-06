@@ -22,6 +22,8 @@
         background-color: blue;
         display: flex; /* this enables flex box */
         flex-direction: row; /* flex direction; default row*/
+
+        /* Aligning items */
         /* Main axis: */
         justify-content: flex-start; /* options:
               flex-start (default), flex-end, center, space-between > space-around > space-evenly  */
@@ -30,7 +32,11 @@
               stretch (default; stretch along the cross axis), flex-start/end, center, baseline (the 'text-line') */
         /* In flex box items will shrink if the row is too crowded. However,
               you can wrap it to the next line. Shrinking will not happen. */
-        /* flex-wrap: wrap; */
+        flex-wrap: wrap;
+        flex-wrap: nowrap; /* Revert back to default */
+
+        /* "gap" can be used in flexbox to add gaps netween elements easily: */
+        gap: 5px;
       }
 
       /* Default in a flex container:
