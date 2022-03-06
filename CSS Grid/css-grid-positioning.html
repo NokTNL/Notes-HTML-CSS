@@ -24,7 +24,13 @@
 
       header {
         /* Span an item in more than one column */
-        grid-column: span 2;
+        /* !!! Items with explicit grid-colmun/row start line will always be placed first
+        before the remaining are placed with auto-placement */
+        grid-column: 1 / 2; /* Start from line 1 and end at line 2 */
+        /* You can also use the span syntax: */
+        grid-column: 1 / span 2; /* the end line is calculated for you */
+        /* If no start line is specified, it will FALL BACK to auto-placement: */
+        grid-column: span 2; /* start line = 1 as it is the first item in the grid */
       }
 
       p:nth-of-type(1) {
@@ -32,15 +38,17 @@
         grid-row: span 2;
       }
 
-      /* grid-column/row is a shorthand. You can define exactly from and to which grid line to span: */
+      /* Spanning across both rows and columns */
       p:nth-of-type(2) {
-        grid-row: 2 / 5;
+        grid-row: 2 / 5; /* !! Alternative: grid-row: 2 / span 3 */
         grid-column: 2 / 3;
       }
       /* Even more compact version of this: */
       p:nth-of-type(2) {
-        /* Clockwise: top - left - bottom - right */
+        /* Anti-clockwise: top - left - bottom - right */
         grid-area: 2 / 2 / 5 / 3;
+        /* or: row-start - column-start - row-span - column-span */
+        grid-area: 2 / 2 / span 3 / span 1;
       }
 
       /* Give names to areas of the grid */
@@ -54,9 +62,22 @@
           ".  p2"
           "footer footer";
       }
-      /* Then specify it in grid-area: */
+      /* Then specify it in grid-area. This is equivalent to explicitly stating start/end lines */
       footer {
         grid-area: footer;
+      }
+
+      /* Dense auto-placement */
+      /* https://webdesign.tutsplus.com/tutorials/understanding-the-css-grid-auto-placement-algorithm--cms-27563 */
+      /* The auto-placement algorithm don't look back after a fatter item is auto-placed, e.g.
+        grid-column: span 2;
+        grid-row: span 2; --> This will force the next item to go AFTER this and causes gaps
+      */
+      /* To force the algorithm to look BACK for gaps :*/
+      body {
+        grid-auto-flow: dense;
+        /* Shorthand for setting both flow direction and dense: */
+        grid-auto-flow: row dense;
       }
     </style>
   </head>

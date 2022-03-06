@@ -33,8 +33,9 @@
         min-height: 100vh;
         grid-template-rows: 1fr 2fr 1fr 2fr;
         /* use the repeat() CSS function for repeating track heights */
+        /* !! repeat() can only be used in grid-template-columns/rows */
         grid-template-rows: repeat(2, 1fr 2fr);
-        /* !! Elements that falls out of the specified template tracks will fall back to use content height */
+        /* !! Elements that falls out of the specified template tracks will fall back to use content height (if no auto-rows/columns are set) */
 
         /* You can let a grid grow until reaching the height by setting:
         1. non-growing grid tracks to fixed units or auto(== content height)
@@ -50,11 +51,11 @@
         grid-template: 300px 1fr 300px 1fr / 1fr 1fr;
 
         /* Implicit grid */
-        /* As the defulat flow is by rows, we can set grid-auto-rows so that
+        /* As the default flow is "grid-auto-flow: row", we can set grid-auto-rows so that
         elements that fall outside our explicit grid will be handled by extra "auto-rows": */
         grid-template-rows: 1fr; /* Only two rows are defined */
         grid-auto-rows: 2fr; /* This will handle the remaining two elements */
-        /* If we set grid-auto-flow: column then the extra elements will handled by grid-auto-columns */
+        /* If we set "grid-auto-flow: column" then the extra elements will handled by grid-auto-columns */
       }
     </style>
   </head>
