@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        padding: 5rem;
+      }
+
+      span {
+        display: inline-block;
+      }
+
+      p {
+        margin-bottom: 16px;
+      }
+
+      img {
+        width: 60px;
+      }
+
+      /* CSS transform */
+      /* !! Some elements can't be transformed, e.g. <col>, <colgroup> */
+      /* !! Only elements placed with the box model can be transformed. That's why ...
+      /* ... inline elements can't be transformed unless display: inline-block is set */
+
+      /* All x, y counts +ve according to the normal flow (+x = right, +y = down) */
+
+      /* rotate(): clockwise rotation */
+      .rotated {
+        transform: rotate(-20deg);
+        /* elements are transformed about the CENTER of the element by default, unless you set it: */
+        transform-origin: bottom left;
+        /* can also use CSS unit, in <x-offset> <y-offset>, counting from (0,0) = top-left corner */
+        transform-origin: 0% 100%;
+        /* It is equivalent to doing transformation about the center but adds extra translations */
+      }
+
+      /* scale(factor) */
+      .scaled {
+        transform: scale(0.7);
+        transform-origin: top left;
+      }
+
+      /* skew() */
+      /* Imagine skewing about (0, 0) (but actually about center by default): */
+      /* skewX(angle): anything VERTICAL "rotates" to +x by angle */
+      /* skewY(angle): anything HORIZONTAL "rotates" to +y by angle */
+      .skewed {
+        transform: skew(0, 20deg);
+        transform-origin: top left;
+      }
+
+      /* translate(unit) */
+      .translated {
+        transform: translate(50px, -30px);
+      }
+
+      /* Chaining transforms */
+      /* https://codepen.io/bali_balo/post/chaining-transforms */
+      /* Reading left -> right : coordinate system also transforms (hard to visualise in the brain) */
+      /* Reading right -> left : coordinate system does not transform (usually easier to imagine) */
+      .multiple {
+        transform: scale(0.5) skew(45deg, 45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Original p</p>
+      <img src="https://i.imgur.com/jkwFqfX.png" alt="top logo" />
+      <span>Original span set to display: inline-block</span>
+    </div>
+
+    <div class="container">
+      <p class="rotated">Rotated p</p>
+      <img
+        class="rotated"
+        src="https://i.imgur.com/jkwFqfX.png"
+        alt="top logo"
+      />
+      <span class="rotated">Rotated span set to display: inline-block</span>
+    </div>
+
+    <div class="container">
+      <p class="scaled">Scaled p</p>
+      <img
+        class="scaled"
+        src="https://i.imgur.com/jkwFqfX.png"
+        alt="top logo"
+      />
+      <span class="scaled">Scaled span set to display: inline-block</span>
+    </div>
+
+    <div class="container">
+      <p class="skewed">Skewed p</p>
+      <img
+        class="skewed"
+        src="https://i.imgur.com/jkwFqfX.png"
+        alt="top logo"
+      />
+      <span class="skewed">Skewed span set to display: inline-block</span>
+    </div>
+
+    <div class="container">
+      <p class="translated">Transformed p</p>
+      <img
+        class="translated"
+        src="https://i.imgur.com/jkwFqfX.png"
+        alt="top logo"
+      />
+      <span class="translated"
+        >Transformed span set to display: inline-block</span
+      >
+    </div>
+  </body>
+</html>
