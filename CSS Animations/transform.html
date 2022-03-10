@@ -32,6 +32,7 @@
       /* rotate(): clockwise rotation */
       .rotated {
         transform: rotate(-20deg);
+        /* transform-origin */
         /* elements are transformed about the CENTER of the element by default, unless you set it: */
         transform-origin: bottom left;
         /* can also use CSS unit, in <x-offset> <y-offset>, counting from (0,0) = top-left corner */
@@ -61,8 +62,8 @@
 
       /* Chaining transforms */
       /* https://codepen.io/bali_balo/post/chaining-transforms */
-      /* Reading left -> right : coordinate system also transforms (hard to visualise in the brain) */
-      /* Reading right -> left : coordinate system does not transform (usually easier to imagine) */
+      /* Reading left -> right : coordinate system also transforms */
+      /* Reading right -> left : coordinate system does not transform */
       .multiple {
         transform: scale(0.5) skew(45deg, 45deg);
       }
