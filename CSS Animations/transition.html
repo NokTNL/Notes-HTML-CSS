@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+
+      .text {
+        font-size: 14px;
+        /* Apply transition on the element. When the element has a style change, CSS will do the change gradually */
+        /* transition-property: the LIST of properties you want to transit, separated in commas */
+        /* have "all" or "none" option */
+        transition-property: font-size, color;
+        /* transition-duration */
+        /* REPEATED if fewer durations than properties */
+        transition-duration: 1s, 2s;
+        /* transition-timing-function: how the property changes over time */
+        /* Default: ease (fast middle, slow start/end) */
+        transition-timing-function: linear, steps(3);
+        /* transition-delay */
+        transition-delay: 0.5s;
+      }
+
+      .text:hover {
+        font-size: 36px;
+        color: red;
+        background-color: aquamarine; /* This is not including in transition property so the change is immediate */
+      }
+
+      /* Shorthand: transition: <property> <duration> <timing-function> <delay>; */
+
+      .box {
+        border-style: solid;
+        border-width: 1px;
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: #0000ff;
+        /* transform is put in as a property to be transited */
+        transition: width 2s, height 2s, background-color 2s, transform 2s;
+        transition-delay: 0.5s;
+      }
+
+      .box:hover {
+        background-color: #ffcccc;
+        width: 200px;
+        height: 200px;
+        transform: rotate(180deg);
+      }
+
+      /* !!! Tips: transitions have best performance when changing "transform" and "opacity" property */
+    </style>
+  </head>
+  <body>
+    <div class="text">Hover on me</div>
+    <div class="box"></div>
+  </body>
+  <script>
+    // Listening to transition events
+    const box = document.querySelector(".box");
+    // Start runnning, before delay
+    // Four properties are getting transitioned so 4 events will be triggered
+    box.addEventListener("transitionrun", () => {
+      console.log("Box transition running");
+    });
+    // Start transition, after delay
+    box.addEventListener("transitionstart", () => {
+      console.log("Box transition started");
+    });
+    // Finished transition
+    box.addEventListener("transitionend", () => {
+      console.log("Box transition finished");
+    });
+  </script>
+</html>
