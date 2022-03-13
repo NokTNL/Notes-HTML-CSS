@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        padding: 10px;
+        opacity: 0.7;
+        text-align: center;
+      }
+
+      b {
+        font-family: sans-serif;
+      }
+
+      #abs1 {
+        z-index: 5;
+        position: absolute;
+        width: 150px;
+        height: 350px;
+        top: 10px;
+        left: 10px;
+        border: 1px dashed #900;
+        background-color: #fdd;
+      }
+
+      #rel1 {
+        z-index: 3;
+        height: 100px;
+        position: relative;
+        top: 30px;
+        border: 1px dashed #696;
+        background-color: #cfc;
+        margin: 0px 50px 0px 50px;
+      }
+
+      #rel2 {
+        z-index: 2;
+        height: 100px;
+        position: relative;
+        top: 15px;
+        left: 20px;
+        border: 1px dashed #696;
+        background-color: #cfc;
+        margin: 0px 50px 0px 50px;
+      }
+
+      #abs2 {
+        z-index: 1;
+        position: absolute;
+        width: 150px;
+        height: 350px;
+        top: 10px;
+        right: 10px;
+        border: 1px dashed #900;
+        background-color: #fdd;
+      }
+
+      #sta1 {
+        z-index: 8;
+        height: 70px;
+        border: 1px dashed #996;
+        background-color: #ffc;
+        margin: 0px 50px 0px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        With z-index, elements will stack in the order stated in z-index, on the z-axis
+        !!! z-index does NOT work on staticly positioned elements!
+    -->
+    <div id="abs1">
+      <b>DIV #1</b>
+      <br />position: absolute; <br />z-index: 5;
+    </div>
+
+    <div id="rel1">
+      <b>DIV #2</b>
+      <br />position: relative; <br />z-index: 3;
+    </div>
+
+    <div id="rel2">
+      <b>DIV #3</b>
+      <br />position: relative; <br />z-index: 2;
+    </div>
+
+    <div id="abs2">
+      <b>DIV #4</b>
+      <br />position: absolute; <br />z-index: 1;
+    </div>
+
+    <!-- z-index has no effect on this one -->
+    <div id="sta1">
+      <b>DIV #5</b>
+      <br />no positioning <br />z-index: 8;
+    </div>
+  </body>
+</html>

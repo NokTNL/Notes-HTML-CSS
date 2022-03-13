@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* stacking context = a container that elements will be stacked inside as layers --> */
+      /* e.g. the root <html> element creates a stacking contect --> */
+
+      /* One of the ways to create a stacking context: set parent element to this */
+      .some-element {
+        position: relative; /* abosulte also works, etc. */
+        z-index: 1;
+      }
+
+      /* e.g. each of the elements below create its own stacking context */
+      header {
+        position: relative;
+        z-index: 2;
+      }
+      .tooltip {
+        position: absolute;
+        z-index: 999999;
+
+        padding-top: 100px;
+      }
+      main {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      Header
+      <div>relative, z-index = 2</div>
+    </header>
+    <main>
+      <div class="tooltip">
+        A tooltip
+        <div>absolute, z-index = 999999</div>
+      </div>
+      <p>
+        Some main content <br />
+        relative, z-index = 1
+      </p>
+    </main>
+
+    <!-- 
+        The root context
+        -> <header>
+        -> <main>
+            -> <div class="tooltip">
+     -->
+  </body>
+</html>
