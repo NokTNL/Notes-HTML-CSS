@@ -51,6 +51,9 @@
         width: 200px;
         height: 200px;
         transform: rotate(180deg);
+        /* !! Tips: if I put the transition in the hover pseudoclass instead, there will be instant snap back (bc. the hover class no longer exist) */
+        /* transition: width 2s, height 2s, background-color 2s, transform 2s;
+        transition-delay: 0.5s; */
       }
 
       /* !!! Tips: transitions have best performance when changing "transform" and "opacity" property */

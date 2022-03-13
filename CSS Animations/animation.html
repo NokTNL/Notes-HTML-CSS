@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #ball {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border: 1px solid black;
+        border-radius: 50%;
+
+        /* Enable animation and define the time properties of your animation here */
+        /* Giving your animation a custom name 
+            !! You can give muliple names (separated by commas, to define multiple animations)
+                - All animations properties below also need comma-separated values if you do that, or else will be repeated
+        */
+        animation-name: change-color, random-name;
+        /* Length of one duration cycle */
+        animation-duration: 2s;
+        /* animation-iteration-count : How many cycles to run */
+        animation-iteration-count: infinite;
+        /* What direction to run each cycle 
+            normal: start from top every cycle (default)
+            alternate: start from top for the first cycle, and the next cycle runs backwards
+            - Also: reverse, alternate-reverse
+        */
+        animation-direction: normal;
+        /* animation-timing-function can also be specified here to be taken by every keyframes */
+        animation-timing-function: linear;
+        /* animation-delay: delay time BEFORE starting the animation */
+        /* animation-fill-mode: what to do before and after animation 
+            - forwards: freeze ("fills forward") at the LAST keyframe (does not apply for infinite iterations)
+            - backwards: apply FIRST keyframe's properties ("fills forward") before animation-delay
+            - both: combination of both
+        */
+        /* Also see animation-play-state in the next selector block */
+
+        /* The animation shorthand */
+        /* Multiple animations are sparated by commas */
+        /* The above is equivalent to: */
+        animation: change-color 2s infinite normal linear, random-name 0s;
+        /* The order is not always important, just some parsing rules:
+            - All values parsable to any built-in animation property values must be parsed as properties first (and not animation-name)
+            - When two <time> values are present, the first is the duration and the second is delay
+        */
+      }
+
+      #ball:hover {
+        /* animation-play-state: stop/continue the animation */
+        animation-play-state: paused;
+      }
+      #ball:active {
+        animation-play-state: running;
+      }
+
+      /* Define the properties you want to change into in each FRAME of the cycle in @keyframes */
+      @keyframes change-color {
+        /* @keyframes uses % for timepoints in a cycle */
+        /* from == 0% */
+        /* !!! If either 0%/100% are not defined, that keyframe will use exisiting element proprties */
+        from {
+          background-color: red;
+          /* Defining animation-timing function here will override the one defined in the element */
+          /* If not defined here, will be taken from the element */
+          animation-timing-function: cubic-bezier(0.68, -0.5, 0.47, 1.4);
+        }
+        50% {
+          background-color: blue;
+          transform: scale(5);
+          /* No timing function defined here so will take from the element (linear) */
+        }
+        /* to == 100% */
+        to {
+          background-color: green;
+          transform: scale(2);
+          /* Any timing function defined here will be useless (end of cycle) */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="ball"></div>
+    </div>
+  </body>
+</html>
