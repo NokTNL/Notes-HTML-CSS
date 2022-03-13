@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 3px solid #73ad21;
+      }
+      /* Static: normal flow (this is the default) */
+      /* top, right, bottom, left and z-index has NO effect */
+      .static {
+        position: static;
+      }
+      /* !! All elements other than static positioning are called "positioned" */
+      /* Relative: normal flow but offset */
+      .relative {
+        position: relative;
+        left: 10px;
+        top: 10px;
+      }
+      /* Abosolute: taken OUT from normal flow, positioned relative to closest POSITIONED parent
+        (or <body> if no parents are positioned ) */
+      .relative-container {
+        position: relative;
+        height: 100px;
+      }
+      .absolute {
+        position: absolute;
+        /* top/bottom etc. will initially be set to "auto" == the position as if it were static. To verwrite it: */
+        top: 0;
+        left: 300px;
+      }
+      /* Fixed: taken out of the normal flow, positioned relative to the viewport */
+      .fixed {
+        position: fixed;
+        /* Again top/bottom etc. are set to "auto" by default: */
+        bottom: 5px; /* Now pushed to bottom */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="static">static</div>
+    <div class="static">static</div>
+    <div class="relative">relative</div>
+    <div class="static">static</div>
+    <div class="static">static</div>
+    <div class="relative-container">
+      relatively positioned conatainer
+      <div class="absolute">absolute</div>
+      <div class="static">static</div>
+    </div>
+    <div class="static">static</div>
+    <div class="static">static</div>
+    <div class="fixed">fixed</div>
+    <div class="static">static</div>
+  </body>
+</html>
