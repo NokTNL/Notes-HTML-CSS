@@ -6,30 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* stacking context = a container that elements will be stacked inside as layers --> */
-      /* e.g. the root <html> element creates a stacking contect --> */
+      /* stacking context = a container that elements will be stacked inside as layers  */
+      /* e.g. the root <html> element creates a stacking context, which allows stacking 
+        static -> positioned elements (respecting z-index and order) */
+      /* !! z-indexes are only respected in its own stacking context and not respected across stacking contexts  */
 
-      /* One of the ways to create a stacking context: set parent element to this */
+      /* There are many ways to create a stacking index: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+        One of the ways to create a stacking context: set parent element to relative positioning AND set z-index */
       .some-element {
         position: relative; /* abosulte also works, etc. */
         z-index: 1;
+        /* !! Note that setting z-index here 1. let the element stack inside its parent context 2. creates its own stacking context */
       }
-
-      /* e.g. each of the elements below create its own stacking context */
-      header {
-        position: relative;
-        z-index: 2;
-      }
-      .tooltip {
-        position: absolute;
-        z-index: 999999;
-
-        padding-top: 100px;
-      }
-      main {
-        position: relative;
-        z-index: 1;
-      }
+      /* Other important ones that creates own stacking context:
+        - Children of flex/grid with z-index set (will stack in the parent flex/grid container)
+        - Elements with opacity < 1
+        - using transform and perspective
+        - setting isolation: isolate (*The purest way to setup one without messing with its own z-index)
+      */
     </style>
   </head>
   <body>

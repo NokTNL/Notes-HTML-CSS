@@ -32,18 +32,20 @@
 
       .container--perspective {
         /* 2. Activate perspective in container */
-        perspective: 100px;
+        perspective: 500px;
       }
       .transformed-3d {
-        transform: rotateX(10deg);
+        transform: rotateX(70deg);
       }
 
       /* perspective-origin: the vanishing point/from what "angle" you are looking at the object */
       /* ACcepts one or two values, either keyword or units */
       .container--perspective {
-        perspective-origin: left;
+        perspective-origin: center; /* Default */
         perspective-origin: bottom right;
         perspective-origin: 100% 300%; /* This sets the origin BELOW the container already */
+        /* For demonstration purpose */
+        perspective-origin: center;
       }
 
       /* CSS has 3d rotate, translate and scale transform functions */
