@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Built-in form validation (HTML5) -->
+    <!-- When input matches requiement, will match :valid selector, otherwise :invalid selector -->
+    <!-- A form with invalid input will be blocked from submission and prompt the user to correct them -->
+
+    <!-- JavaScript validation -->
+
+    <form>
+      <label for="mail"
+        >I would like you to provide me with an e-mail address:</label
+      >
+      <input type="email" id="mail" name="mail" />
+      <button>Submit</button>
+    </form>
+
+    <script>
+      const email = document.getElementById("mail");
+
+      email.addEventListener("input", function (event) {
+        if (email.validity.typeMismatch) {
+          // setCustomValidity: set the custom error message
+          email.setCustomValidity("I am expecting an e-mail address!");
+          // shows the message
+          email.reportValidity();
+        } else {
+          email.setCustomValidity("");
+        }
+      });
+    </script>
+  </body>
+</html>
