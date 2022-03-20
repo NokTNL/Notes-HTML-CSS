@@ -26,12 +26,12 @@
         /* 3d space is enables only when a "perspective" is set */
         /* perspective = how far on z-axis it is from the object */
         /* Small perspective = "very close to the object" */
-        /* 1. Activate perspective on an element */
+        /* Method 1. Activate perspective on an element using perspective() */
         transform: perspective(100px) rotateX(10deg);
       }
 
       .container--perspective {
-        /* 2. Activate perspective in container */
+        /* Method 2. Activate perspective in container */
         perspective: 500px;
       }
       .transformed-3d {
