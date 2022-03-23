@@ -1,0 +1,40 @@
+body {
+  /* Images are not naturally responsive and often have dimensions deviant from parent container */
+  /* !! Basic principle: DON'T set both height and width for an image to preserve aspect ratio! */
+
+  height: 100vh;
+  margin: 0;
+  /* 1. Background Images */
+  background-image: url(https://images.unsplash.com/photo-1578241561880-0a1d5db3cb8a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80);
+  /* By default, background-size = auto auto, i.e. take on its source height and width */
+  /* The default behaviour when a background image is smaller than the element: tiling */
+  background-size: 50%; /* This will tile 2 images each column */
+  background-size: contain; /* This will stretch the image to maximum until hitting one wall */
+  background-size: cover; /* This will stretch until both walls are hit (cropping part of the image) */
+
+  /* Fine grain control on image: */
+  /* To stop the default tiling mechanism: */
+  background-repeat: no-repeat;
+  /* To center the image: */
+  background-position: center;
+}
+
+/* 2. <img> element (works on all replaced elements too) */
+/* Replaced elements: content's behaviour are out of scope of CSS styling, except for positioning and dimensions
+--> https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element*/
+img {
+  /* Default behaviour of setting image's dimension:
+    - setting only height or width will scale the box element's box (and aspect ratio of the box will still match the image content because the other one will be = auto); setting both will change the aspect ratio of the box
+    - The image content will fill the box by default (object-fit = fill); distorted when aspect ratio of element box =/= image content
+  */
+  /* Now set both width and content to distort the box's ratio: */
+  height: 40%;
+  width: 100%;
+  /* Override the fitting behaviour of the image content: */
+  object-fit: none; /* This will make the image preserves its source dimension even if you set both height & width; the image will be center positioned */
+  object-fit: contain; /* This will also make it not distorted and enlarged until hitting one wall */
+  /* If object-position: none, we can push the image content around its box */
+  /* Default: 50% 50% (= center);  */
+  object-fit: none;
+  object-position: right bottom;
+}
