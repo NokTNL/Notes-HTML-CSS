@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  text-indent: -9999px;
+  line-height: 0; /* Collapse the original line */
+}
+
+/* Syntax: @media <media-type> and (condition: breakpoint)  */
+/* when the condition is fulfilled, the rule inside will apply 
+  e.g.  max-width --> max. allowed width 
+        min-width --> min. required width
+*/
+
+@media (min-width: 1400px) {
+  h1:after {
+    content: "Extra extra large";
+    text-indent: 0;
+    display: block;
+    line-height: 100vh; /* New content takes up original line height */
+  }
+}
+
+/* !! @media rules, like other CSS rules, are applied in order so put the most restrictive rules at the bottom */
+@media (max-width: 1400px) {
+  h1:after {
+    content: "Extra large";
+    text-indent: 0;
+    display: block;
+    line-height: 100vh; /* New content takes up original line height */
+  }
+}
+
+@media (max-width: 1200px) {
+  h1:after {
+    content: "Large";
+  }
+}
+@media (max-width: 992px) {
+  h1:after {
+    content: "Medium";
+  }
+}
+
+@media (max-width: 768px) {
+  h1:after {
+    content: "Small";
+  }
+}
+
+@media (max-width: 576px) {
+  h1:after {
+    content: "Extra small";
+  }
+}
+
+@media (max-width: 320px) {
+  h1:after {
+    content: "Smaller than 320px";
+  }
+}
