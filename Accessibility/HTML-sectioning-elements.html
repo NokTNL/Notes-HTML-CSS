@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTML has sectioning elements to section the page into different functional areas. They usually DON'T come with default styles -->
+
+    <!-- <body> is the top-level sectioning for the WHOLE document contents -->
+    <!-- <main> is for the main content of the body; role="main" -->
+    <!-- <header> role="header" -->
+    <!-- <footer> role="footer" -->
+    <!--   - Sectioning elements CAN have their own header/footers; header/footers can also have their OWN sectioning elements inside, but NOT header-in-header/footer-in-footer! -->
+    <header>
+      <h1>Welcome!</h1>
+    </header>
+
+    <!-- <nav> is for a navigating the page, containing LINKS to different pages/parts of the page; role="navigation"-->
+    <nav>
+      <h2>Some quick links</h2>
+      <ul>
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+      </ul>
+      <p>
+        To go to some other places, go to this
+        <a href="#">link to a special section</a>
+      </p>
+    </nav>
+
+    <main>
+      <!-- <article> is a SELF-CONTAINED block that still makes sense when taken out of context; role="article"
+        - e.g. an info section of the main page, or even small blocks like a comment block, a widget etc.; 
+        - Big self-contained blocks can contain smaller self-contined blocks, so <article>'s can be NESTED
+    -->
+      <article>
+        <h2>Section 1</h2>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi,
+        cumque eos quasi repudiandae iure quos quaerat amet saepe magnam ipsa ex
+        nihil error mollitia quibusdam consequatur reiciendis. Hic, optio
+        facilis.
+        <article>
+          <h3>Sub-section 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel hic
+            dicta quos doloremque explicabo quidem eaque ullam odit praesentium
+            harum fugit eum
+          </p>
+        </article>
+      </article>
+      <!-- <aside> is for extra info that is "tangentially" realted to the main content; role="complementary"-->
+      <aside>
+        <p>--- I am not so important info ---</p>
+      </aside>
+    </main>
+
+    <!-- <section> is for semantic sectioning when the remaining sectioning elements does not make sense, including non-self-containing sections; role="region" -->
+    <!-- !!! <section> should have headings!  -->
+    <!-- !!! Don't use <section> for styling wrappers! That should be <div> (which does not have ANY semantic meanings) -->
+
+    <footer>------- I am the footer -------</footer>
+  </body>
+</html>
